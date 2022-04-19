@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel='stylesheet' href='C:/Users/Utilisateur/Desktop/IDP/Spring/mspr_java/res/css/style.css'>
+<link rel='stylesheet' href='C:/Users/Utilisateur/Desktop/IDP/Spring/mspr_java/bin/css/style.css'>
 </head>
 <body>
 <div class = 'topnav'>
-<a href='index.html'>Accueil</a>
+<a href='C:/Users/Utilisateur/Desktop/IDP/Spring/mspr_javaindex.html'>Accueil</a>
 <div class='image'>
-<img src='C:/Users/Utilisateur/Desktop/IDP/Spring/mspr_java/res/data/gosecuri.png' width="70" height="50">
+<img src='C:/Users/Utilisateur/Desktop/IDP/Spring/mspr_java/bin/data/gosecuri.png' width="70" height="50">
 </div>
 </div>
 <div class='titre'>
@@ -16,7 +16,7 @@ Hans Aaron
 </h1>
 </div>
 <div class='image'>
-<img src='C:/Users/Utilisateur/Desktop/IDP/Spring/mspr_java/res/data/ahans.png'>
+<img src='C:/Users/Utilisateur/Desktop/IDP/Spring/mspr_java/bin/data/ahans.png'>
 </div>
 <div class='mat'>
 <br>

@@ -7,14 +7,13 @@ import java.util.*;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
 		
 		Scanner scanner = new Scanner(System.in);
-		String currentWorkingDir = System.getProperty("user.dir");
 
-		File file;
 		Scanner fileIn; //input file connection
+		Scanner htmlScanner;
 		PrintWriter fileOut; //HTML file connection
 		String filenameIn; //original file's name
 		String filenameOut; //new HTML file's name
@@ -22,7 +21,8 @@ public class Main {
 		String line = null; // a line from the input file
 		Agent agent = new Agent();
 		String password = "";
-		String passwordVerify = ""; 
+		String passwordVerify = "";
+		PrintWriter pw;
 
 		
 		// 1. ask user for a file name (or file path)
@@ -37,7 +37,6 @@ public class Main {
 		try {
 			
 			//3. rename .txt as .html 
-			file = new File(Main.class.getClassLoader().getResource("data/" + filenameIn).getFile());
 			InputStream input = Main.class.getClassLoader().getResourceAsStream("data/" + filenameIn);
 
 			fileIn = new Scanner(input);
@@ -52,7 +51,7 @@ public class Main {
 //			File fileHtml = new File();
 //			System.out.println(currentWorkingDir + "\\src\\html\\" + filenameOut);
 			InputStream inputHtml = Main.class.getClassLoader().getResourceAsStream("html/" + filenameOut);
-			
+
 			fileOut = new PrintWriter(inputHtml.toString());
 			
 			// 4. determine if file is empty
@@ -89,13 +88,13 @@ public class Main {
 				fileOut.println("<!DOCTYPE html>");
 				fileOut.println("<html>");
 				fileOut.println("<head>");
-				fileOut.println("<link rel=\'stylesheet\' href='C:/Users/Utilisateur/Desktop/IDP/Spring/mspr_java/res/css/style.css'>");
+				fileOut.println("<link rel=\'stylesheet\' href='C:/Users/Utilisateur/Desktop/IDP/Spring/mspr_java/bin/css/style.css'>");
 				fileOut.println("</head>");
 				fileOut.println("<body>");
 				fileOut.println("<div class = 'topnav'>");
-				fileOut.println("<a href='index.html'>Accueil</a>");
+				fileOut.println("<a href='C:/Users/Utilisateur/Desktop/IDP/Spring/mspr_javaindex.html'>Accueil</a>");
 				fileOut.println("<div class='image'>"); //IMAGE
-				fileOut.println("<img src='C:/Users/Utilisateur/Desktop/IDP/Spring/mspr_java/res/data/gosecuri.png' width=\"70\" height=\"50\">");
+				fileOut.println("<img src='C:/Users/Utilisateur/Desktop/IDP/Spring/mspr_java/bin/data/gosecuri.png' width=\"70\" height=\"50\">");
 				fileOut.println("</div>");
 
 				fileOut.println("</div>");
@@ -107,7 +106,7 @@ public class Main {
 				fileOut.println("</div>");
 				
 				fileOut.println("<div class='image'>"); //IMAGE
-				fileOut.println("<img src='C:/Users/Utilisateur/Desktop/IDP/Spring/mspr_java/res/data/" + picture + "'>");
+				fileOut.println("<img src='C:/Users/Utilisateur/Desktop/IDP/Spring/mspr_java/bin/data/" + picture + "'>");
 				fileOut.println("</div>");
 
 				
@@ -126,11 +125,34 @@ public class Main {
 				fileOut.println("</html>");
 				
 			}
-//			fileIn.close();
+			fileIn.close();
 			fileOut.close();
 			
-			File fileToOpen = new File(Main.class.getResource("/html/"+filenameOut).getFile());
-//			File fileToOpen = new File(filenameOut);
+			File fileToOpen = new File(Main.class.getClassLoader().getResource("html/" + filenameOut).getFile());
+			System.out.println(fileToOpen);
+			
+			InputStream htmlReader = Main.class.getClassLoader().getResourceAsStream("html/" + filenameOut);
+			
+//			htmlScanner = new Scanner(htmlReader);
+//			File htmlFile = new File("newFile.html");
+//			FileWriter fw = new FileWriter(htmlFile);
+//			pw = new PrintWriter(fw);
+//
+//			try {
+//				pw.println(htmlScanner.nextLine());
+//				while(htmlScanner.hasNextLine()) {
+//
+//					pw.println(htmlScanner.nextLine());
+//				}
+//				
+//				htmlScanner.close();
+//				pw.close();
+////				fileIn = new Scanner(file);
+//			}
+//			catch(NoSuchElementException e) {
+//				System.out.println("Erreur: "+e.getMessage());
+//			}
+//			
 			try {
 				System.out.println("Mot de passe :");
 				passwordVerify = scanner.nextLine();
